@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -32,8 +31,8 @@ class TestAccountAssetMaintenance(common.SavepointCase):
         ].create({
             'name': 'Test equipment category',
         })
-        cls.asset_category = cls.env['account.asset.category'].create({
-            'name': 'Test assset category',
+        cls.asset_profile = cls.env['account.asset.profile'].create({
+            'name': 'Test assset profile',
             'journal_id': cls.journal.id,
             'account_asset_id': cls.account.id,
             'account_depreciation_expense_id': cls.account.id,
@@ -47,7 +46,7 @@ class TestAccountAssetMaintenance(common.SavepointCase):
             'invoice_line_ids': [
                 (0, 0, {
                     'name': 'Test line',
-                    'asset_category_id': cls.asset_category.id,
+                    'asset_profile_id': cls.asset_profile.id,
                     'quantity': 1,
                     'price_unit': 50,
                     'account_id': cls.account.id,
@@ -58,9 +57,9 @@ class TestAccountAssetMaintenance(common.SavepointCase):
 
     def test_flow(self):
         # HACK: There's no way to the created asset
-        prev_assets = self.env['account.asset.asset'].search([])
+        prev_assets = self.env['account.asset'].search([])
         self.invoice.action_invoice_open()
-        current_assets = self.env['account.asset.asset'].search([])
+        current_assets = self.env['account.asset'].search([])
         asset = current_assets - prev_assets
         self.assertEqual(len(asset.equipment_ids), 1)
         res = asset.button_open_equipment()

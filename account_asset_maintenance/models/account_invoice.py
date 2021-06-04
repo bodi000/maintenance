@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -43,8 +42,8 @@ class AccountInvoiceLine(models.Model):
         for i in range(num):
             vals_list.append({
                 'name': "{} [{}/{}]".format(invoice_line.name, i + 1, num),
-                'category_id': (
-                    invoice_line.asset_category_id.equipment_category_id.id
+                'profile_id': (
+                    invoice_line.asset_profile_id.equipment_category_id.id
                 ),
                 'invoice_line_id': invoice_line.id,
                 'cost': invoice_line.price_subtotal / invoice_line.quantity,
@@ -54,15 +53,16 @@ class AccountInvoiceLine(models.Model):
 
     @api.multi
     def asset_create(self):
-        for line in self.filtered('asset_category_id.equipment_category_id'):
+        for line in self.filtered('asset_profile_id.equipment_category_id'):
             # Create equipments
             equipments = self.env['maintenance.equipment']
             for vals in self._prepare_equipment_vals_list(line):
                 equipments += equipments.create(vals)
+            raise UserWarning(equipments)
             # Link assets to equipments
             # HACK: There's no way to inherit method knowing the created asset
-            prev_assets = self.env['account.asset.asset'].search([])
+            prev_assets = self.env['account.asset'].search([])
             super(AccountInvoiceLine, line).asset_create()
-            current_assets = self.env['account.asset.asset'].search([])
+            current_assets = self.env['account.asset'].search([])
             asset = current_assets - prev_assets
             asset.write({'equipment_ids': [(4, x) for x in equipments.ids]})

@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
 
 
-class AccountAssetAsset(models.Model):
-    _inherit = 'account.asset.asset'
+class AccountAsset(models.Model):
+    _inherit = 'account.asset'
 
     equipment_ids = fields.Many2many(
         comodel_name="maintenance.equipment", string="Equipments",

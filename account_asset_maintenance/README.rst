@@ -8,7 +8,7 @@ Link between assets and equipments
 
 This module links assets with equipments, allowing to create automatically
 an equipment from the supplier invoice if an equipment category is assigned
-in the asset category.
+in the asset profile.
 
 Configuration
 =============
@@ -28,7 +28,7 @@ To use this module, you need to:
 #. Go to *Accounting > Purchases > Vendor Bills*.
 #. Create a new bill.
 #. Create one invoice line.
-#. Select an asset category with an equipment category filled.
+#. Select an asset profile with an equipment category filled.
 #. Validate the invoice.
 #. A new page called "Equipments" will appear with the auto-created equipments.
 #. An equipment will created per each quantity indicated in the invoice line.
@@ -51,7 +51,7 @@ Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/account-financial-tools/issues>`_. In case of trouble, please
+<https://github.com/OCA/maintenance/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smash it by providing detailed and welcomed feedback.
 
@@ -62,6 +62,7 @@ Contributors
 ------------
 
 * Pedro M. Baeza <pedro.baeza@tecnativa.com>
+* Bogdan Stanciu <bogdanovidiu.stanciu@gmail.com>
 
 Maintainer
 ----------

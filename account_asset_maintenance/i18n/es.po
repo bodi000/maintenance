@@ -16,18 +16,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_asset_maintenance
-#: model:ir.model,name:account_asset_maintenance.model_account_asset_category
-msgid "Asset category"
+#: model:ir.model,name:account_asset_maintenance.model_account_asset_profile
+msgid "Asset profile"
 msgstr "Categoría de activo"
 
 #. module: account_asset_maintenance
 #: code:addons/account_asset_maintenance/models/account_invoice.py:61
 #, python-format
-msgid "Asset category '{}' hasn't got an equipment category assigned."
+msgid "Asset profile '{}' hasn't got an equipment category assigned."
 msgstr "La categoría de activo '{}'  no tiene una categoría de equipo asignada."
 
 #. module: account_asset_maintenance
-#: model:ir.model,name:account_asset_maintenance.model_account_asset_asset
+#: model:ir.model,name:account_asset_maintenance.model_account_asset
 msgid "Asset/Revenue Recognition"
 msgstr "Aceptación de pagos/Ingresos"
 
@@ -42,21 +42,21 @@ msgid "Equipment"
 msgstr "Equipamiento"
 
 #. module: account_asset_maintenance
-#: model:ir.model.fields,field_description:account_asset_maintenance.field_account_asset_category_equipment_category_id
+#: model:ir.model.fields,field_description:account_asset_maintenance.field_account_asset_profile_equipment_category_id
 msgid "Equipment category"
 msgstr "Equipment category"
 
 #. module: account_asset_maintenance
-#: model:ir.model.fields,field_description:account_asset_maintenance.field_account_asset_asset_equipment_count
+#: model:ir.model.fields,field_description:account_asset_maintenance.field_account_asset_equipment_count
 msgid "Equipment count"
 msgstr "Equipment count"
 
 #. module: account_asset_maintenance
-#: model:ir.model.fields,field_description:account_asset_maintenance.field_account_asset_asset_equipment_ids
+#: model:ir.model.fields,field_description:account_asset_maintenance.field_account_asset_equipment_ids
 #: model:ir.model.fields,field_description:account_asset_maintenance.field_account_invoice_equipment_ids
 #: model:ir.model.fields,field_description:account_asset_maintenance.field_account_invoice_line_equipment_ids
 #: model:ir.ui.view,arch_db:account_asset_maintenance.invoice_supplier_form
-#: model:ir.ui.view,arch_db:account_asset_maintenance.view_account_asset_asset_form
+#: model:ir.ui.view,arch_db:account_asset_maintenance.view_account_asset_form
 msgid "Equipments"
 msgstr "Equipos"
 
@@ -71,7 +71,7 @@ msgid "Invoice Line"
 msgstr "Linea de Factura"
 
 #. module: account_asset_maintenance
-#: model:ir.ui.view,arch_db:account_asset_maintenance.view_account_asset_category_form
+#: model:ir.ui.view,arch_db:account_asset_maintenance.view_account_asset_profile_form
 msgid "Maintenance equipments"
 msgstr "Maintenance equipments"
 
@@ -81,6 +81,6 @@ msgid "Origin line invoice"
 msgstr "Origin line invoice"
 
 #. module: account_asset_maintenance
-#: model:ir.model.fields,help:account_asset_maintenance.field_account_asset_category_equipment_category_id
-msgid "This category will be used for the created equipment when it is created automatically on validating a vendor bill that contains this asset category."
-msgstr "This category will be used for the created equipment when it is created automatically on validating a vendor bill that contains this asset category."
+#: model:ir.model.fields,help:account_asset_maintenance.field_account_asset_profile_equipment_category_id
+msgid "This category will be used for the created equipment when it is created automatically on validating a vendor bill that contains this asset profile."
+msgstr "This category will be used for the created equipment when it is created automatically on validating a vendor bill that contains this asset profile."
